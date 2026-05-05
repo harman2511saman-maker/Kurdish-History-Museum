@@ -487,7 +487,8 @@ body::-webkit-scrollbar {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: brightness(0.8);
+    object-position: center 20%; /* Keep faces visible */
+    filter: brightness(0.9);
 }
 
 .modal-text-side {
@@ -518,32 +519,44 @@ body::-webkit-scrollbar {
 
 /* Mobile Modal */
 @media (max-width: 768px) {
+    .modal-content {
+        height: 90vh; /* More space for text */
+        width: 95%;
+    }
     .modal-body {
         grid-template-columns: 1fr;
-        grid-template-rows: auto 1fr;
-        overflow-y: auto;
+        grid-template-rows: 200px 1fr; /* Smaller image height */
+        overflow-y: hidden;
     }
     .modal-image-side {
-        height: 250px;
+        height: 200px;
     }
     .modal-text-side {
-        padding: 1.5rem;
-        overflow-y: visible;
+        padding: 1rem 1.5rem;
+        overflow-y: auto; /* Enable scroll here */
+        gap: 0.8rem;
+        display: block; /* Better for text flow */
     }
     .modal-title {
-        font-size: 2rem;
+        font-size: 1.8rem;
+        margin-bottom: 0.3rem;
+    }
+    .modal-subtitle {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+    .modal-full-bio {
+        font-size: 1rem;
+        line-height: 1.6;
     }
     .modal-close {
         top: 10px;
         right: 10px;
-        background: rgba(0,0,0,0.5);
+        background: rgba(0,0,0,0.6);
         border-radius: 50%;
-        width: 40px;
-        height: 40px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.5rem;
+        width: 35px;
+        height: 35px;
+        font-size: 1.2rem;
     }
 }
 /* Intro Screen Styles */
